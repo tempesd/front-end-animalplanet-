@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(135deg, #8EADF4, #1B67B8); /* Fondo degradado */
+
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    color:white;
+}
+
+.rojo{
+    color: red;
+}

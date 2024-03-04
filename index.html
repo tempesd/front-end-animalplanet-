@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gest. Citas</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Font Awesome CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <!-- SweetAlert CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="./css/estilos.css">
+ 
+</head>
+<body>
+
+<div class="container-fluid mt-3">
+  <div class="card">
+    <div class="card-body">
+        <h4>Gestión de citas</h4>
+        <hr />
+        <button class="btn btn-success btn-sm" onclick="fnNuevo()">
+            <i class="fa fa-plus-circle"></i> Nueva Cita
+        </button>
+        <br /> 
+        <div class="table-responsive">
+            <table id="citas-table" class="table table-bordered table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Doctor</th>
+                    <th>Propietario</th>
+                    <th>Servicio</th>
+                    <th>Fecha</th>
+                    <th>Motivo</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="citas-table-body"></tbody>
+              </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="citaModal" tabindex="-1" aria-labelledby="citaModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title" id="citaModalLabel">::: <span id="lblTitulo">Nueva</span> Cita :::</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    
+        <form id="citaForm">
+          <div class="mb-3">
+            <label for="doctor" class="form-label">Doctor: <span class="rojo">(*)</span></label>
+            <input type="text" class="form-control" id="doctor" required>
+          </div>
+          <div class="mb-3">
+            <label for="propietario" class="form-label">Propietario: <span class="rojo">(*)</span></label>
+            <input type="text" class="form-control" id="propietario" required>
+          </div>
+          <div class="mb-3">
+            <label for="servicio" class="form-label">Servicio: <span class="rojo">(*)</span></label>
+            <input type="text" class="form-control" id="servicio" required>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha: <span class="rojo">(*)</span></label>
+            <input type="date" class="form-control" id="fecha" required>
+          </div>
+          <div class="mb-3">
+            <label for="motivo" class="form-label">Motivo: <span class="rojo">(*)</span></label>
+            <input type="text" class="form-control" id="motivo" required>
+          </div>
+          <input type="hidden" name="id" id="id">
+          <button type="button" onclick="fnGuardarCambios()" class="btn btn-primary">
+            <i class="fa fa-save"></i> Guardar
+         </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<!-- Axios CDN -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="./js/Funciones.js"></script>
+<script src="./js/CitaController.js"></script>
+
+</body>
+</html>
